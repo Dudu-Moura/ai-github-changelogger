@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+
+# Segredos: nunca versionar. Use .env.example como modelo.
+.env
+.env.*
+!.env.example
+
+# Saídas geradas pelo harness de avaliação
+evals/reports/*
+!evals/reports/.gitkeep
