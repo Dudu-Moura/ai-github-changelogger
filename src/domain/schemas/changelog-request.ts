@@ -6,7 +6,7 @@ export const MAX_UNITS_PER_RUN = 100;
 export const repoRefSchema = z
   .string()
   .trim()
-  .regex(/^([\w.-]+)\/([\w.-]+)$/, "repo deve estar no formato owner/name")
+  .regex(/^([\w.-]+)\/([\w.-]+)$/, "repo must be in the owner/name format")
   .transform((value) => {
     const [owner, name] = value.split("/") as [string, string];
     return { owner, name };
@@ -25,7 +25,7 @@ const dateRangeSchema = z
     until: z.coerce.date().optional(),
   })
   .refine((range) => !range.until || range.since <= range.until, {
-    message: "since deve ser anterior ou igual a until",
+    message: "since must be earlier than or equal to until",
     path: ["until"],
   });
 
@@ -34,7 +34,7 @@ export type ChangeRange = z.output<typeof changeRangeSchema>;
 
 export const languageSchema = z
   .string()
-  .regex(/^[a-z]{2,3}(-[A-Z]{2})?$/, "idioma deve ser um código como en, pt-BR ou es");
+  .regex(/^[a-z]{2,3}(-[A-Z]{2})?$/, "language must be a code such as en, pt-BR or es");
 
 export const changelogRequestSchema = z.object({
   repo: repoRefSchema,

@@ -162,7 +162,7 @@ A saída é um JSON com o resultado e os dados de como ele foi produzido. Exempl
       ]
     }
   ],
-  "skipped": [{ "ref": "#140", "reason": "Apenas alterações em package-lock.json" }]
+  "skipped": [{ "ref": "#140", "reason": "No analyzable changes: package-lock.json (lockfile)" }]
 }
 ```
 
@@ -223,8 +223,8 @@ O custo real de cada execução aparece em `meta.usage.estimatedCostUsd`. Para e
 **v1: changelog em JSON** *(em andamento)*
 - [x] Configuração validada
 - [x] Modelo de dados (entrada, unidades de mudança, análise, changelog)
-- [ ] Integração com a API do GitHub
-- [ ] Leitura, filtragem e divisão de diffs
+- [x] Integração com a API do GitHub
+- [x] Leitura, filtragem e divisão de diffs
 - [ ] Integração com Claude (saída estruturada)
 - [ ] Análise por PR e agrupamento
 - [ ] Interface de linha de comando

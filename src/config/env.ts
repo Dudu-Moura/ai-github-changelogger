@@ -7,7 +7,7 @@ const optionalSecret = z.preprocess(emptyAsUndefined, z.string().trim().min(1).o
 const envSchema = z.object({
   ANTHROPIC_API_KEY: z.preprocess(
     emptyAsUndefined,
-    z.string({ error: "ANTHROPIC_API_KEY é obrigatória" }).trim().min(1),
+    z.string({ error: "ANTHROPIC_API_KEY is required" }).trim().min(1),
   ),
   GITHUB_TOKEN: optionalSecret,
   HF_TOKEN: optionalSecret,
@@ -42,7 +42,7 @@ export function loadEnv(source: Record<string, string | undefined> = process.env
 
   if (!result.success) {
     throw new InvalidEnvError(
-      `Configuração inválida:\n${z.prettifyError(result.error)}\n\nVeja o .env.example.`,
+      `Invalid configuration:\n${z.prettifyError(result.error)}\n\nSee .env.example.`,
     );
   }
 
