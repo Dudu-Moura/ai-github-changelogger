@@ -42,7 +42,7 @@ export const changelogSchema = z.object({
     usage: z.object({
       inputTokens: z.number().int().nonnegative(),
       outputTokens: z.number().int().nonnegative(),
-      estimatedCostUsd: z.number().nonnegative(),
+      estimatedCostUsd: z.number().nonnegative().nullable(),
     }),
   }),
   summary: z.string(),

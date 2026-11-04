@@ -194,7 +194,7 @@ Cada execução faz chamadas pagas à API da Anthropic. O custo depende principa
 | Sonnet 5.5 nas duas etapas | ~US$ 1,30 |
 | Haiku 5.5 na análise + Sonnet 5.5 no agrupamento | ~US$ 0,20 |
 
-O custo real de cada execução aparece em `meta.usage.estimatedCostUsd`. Para economizar, troque `MAP_MODEL` e `REDUCE_MODEL` no `.env` ou reduza `LLM_EFFORT`.
+O custo estimado de cada execução aparece em `meta.usage.estimatedCostUsd` (fica `null` se algum modelo usado não tiver preço conhecido). Para economizar, troque `MAP_MODEL` e `REDUCE_MODEL` no `.env` ou reduza `LLM_EFFORT`.
 
 ---
 
@@ -225,7 +225,7 @@ O custo real de cada execução aparece em `meta.usage.estimatedCostUsd`. Para e
 - [x] Modelo de dados (entrada, unidades de mudança, análise, changelog)
 - [x] Integração com a API do GitHub
 - [x] Leitura, filtragem e divisão de diffs
-- [ ] Integração com Claude (saída estruturada)
+- [x] Integração com Claude (saída estruturada)
 - [ ] Análise por PR e agrupamento
 - [ ] Interface de linha de comando
 - [ ] Harness de avaliação: mede acurácia, alucinação, custo e latência contra casos reais anotados

@@ -3,6 +3,8 @@ import type { z } from "zod";
 export interface TokenUsage {
   inputTokens: number;
   outputTokens: number;
+  /** Null when the provider cannot price the model that ran. */
+  estimatedCostUsd: number | null;
 }
 
 export interface StructuredRequest<S extends z.ZodType> {
@@ -23,7 +25,8 @@ export interface LLMProvider {
 
   /**
    * Sends a prompt and returns a response already validated against `schema`.
-   * Implementations must throw when the model output does not match the schema.
+   * Throws LLMOutputError when this request produced no usable output, and
+   * LLMProviderError when the provider could not serve it.
    */
   generateStructured<S extends z.ZodType>(
     request: StructuredRequest<S>,
