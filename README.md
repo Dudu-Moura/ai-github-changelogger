@@ -226,7 +226,8 @@ O custo estimado de cada execução aparece em `meta.usage.estimatedCostUsd` (fi
 - [x] Integração com a API do GitHub
 - [x] Leitura, filtragem e divisão de diffs
 - [x] Integração com Claude (saída estruturada)
-- [ ] Análise por PR e agrupamento
+- [x] Análise por PR
+- [ ] Agrupamento e montagem do changelog
 - [ ] Interface de linha de comando
 - [ ] Harness de avaliação: mede acurácia, alucinação, custo e latência contra casos reais anotados
 - [ ] Hugging Face como provedor alternativo
@@ -255,9 +256,9 @@ Estrutura em camadas:
 ```
 src/
 ├── interface/       # linha de comando
-├── application/     # orquestra o pipeline (coleta → filtro → análise → agrupamento)
+├── application/     # orquestra o pipeline (coleta → filtro → análise → agrupamento) e define os prompts
 ├── domain/          # schemas, regras e interfaces; não depende de GitHub nem de IA
-├── infrastructure/  # integrações: GitHub, Claude, Hugging Face, prompts
+├── infrastructure/  # integrações: GitHub, Claude, Hugging Face
 └── config/          # variáveis de ambiente
 evals/               # harness de avaliação
 ```

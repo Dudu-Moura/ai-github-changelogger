@@ -20,7 +20,10 @@ export const unitAnalysisSchema = z.object({
   messageMatchesDiff: z
     .boolean()
     .describe("False when the commit/PR message does not describe what the diff actually does"),
-  mismatchReason: z.string().nullable(),
-  confidence: z.number().min(0).max(1),
+  mismatchReason: z
+    .string()
+    .nullable()
+    .describe("What the message gets wrong; null when messageMatchesDiff is true"),
+  confidence: z.number().min(0).max(1).describe("From 0 to 1, how well the diff supports this analysis"),
 });
 export type UnitAnalysis = z.infer<typeof unitAnalysisSchema>;
